@@ -76,6 +76,7 @@ if (window.location.pathname.includes('resultado.html')) {
     const resultado = JSON.parse(localStorage.getItem('resultadoPokemon'));
     console.log(resultado)
     if (resultado) {
+
         document.body.innerHTML = `
             <div class="container">
                 <h1 class="tituloResultado">Você seria o ${resultado.nome}!</h1>
@@ -84,6 +85,15 @@ if (window.location.pathname.includes('resultado.html')) {
                 <a href="index.html"><button class="btnComecarQuestionario">Refazer</button></a>
             </div>
         `;
+
+        if(resultado.nome == "Squirtle"){
+            document.body.style.backgroundColor = " rgb(178, 221, 240)"
+        }else if (resultado.nome == "Charmander"){
+            document.body.style.backgroundColor = " rgb(255, 207, 207)"
+        }else if(resultado.nome == "Bulbasaur"){
+            document.body.style.backgroundColor = " rgb(230, 255, 224)"
+        }
+
     } else {
         document.body.innerHTML = `
             <div class="container">
