@@ -72,9 +72,11 @@ if (window.location.pathname.includes('questionario.html')) {
     });
 }
 
+
+
 if (window.location.pathname.includes('resultado.html')) {
     const resultado = JSON.parse(localStorage.getItem('resultadoPokemon'));
-
+    console.log(resultado)
     if (resultado) {
         document.body.innerHTML = `
             <div class="container">
