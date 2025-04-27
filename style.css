@@ -13,6 +13,13 @@ body{
     margin-top: 30vh;
 }
 
+.container-img{
+    display: flex;
+    margin-left: 15%;
+
+    
+}
+
 .tituloBoasVindas{
 
 
