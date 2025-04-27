@@ -27,20 +27,19 @@ body{
 }
 
 .tituloBoasVindas{
-
-
-
-
     font-family: "Press Start 2P", system-ui;
     font-weight: 400;
     font-style: normal;
-
-
 }
 
+.tituloResultado{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
 
 .btnComecarQuestionario{
-    display: flex;
+    text-decoration: none!important;
     justify-content: center;
     align-items: center;
 
@@ -55,6 +54,7 @@ body{
     background-color: rgb(109, 170, 109);
     border-radius: 7px;
 }
+
 
 .botaoEnviar{
     font-family: "Press Start 2P", system-ui;

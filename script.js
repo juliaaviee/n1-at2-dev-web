@@ -72,15 +72,13 @@ if (window.location.pathname.includes('questionario.html')) {
     });
 }
 
-
-
 if (window.location.pathname.includes('resultado.html')) {
     const resultado = JSON.parse(localStorage.getItem('resultadoPokemon'));
     console.log(resultado)
     if (resultado) {
         document.body.innerHTML = `
             <div class="container">
-                <h1>Você seria o ${resultado.nome}!</h1>
+                <h1 class="tituloResultado">Você seria o ${resultado.nome}!</h1>
                 <img src="${resultado.imagem}" alt="${resultado.nome}" style="width:200px;">
                 <p>${resultado.descricao}</p>
                 <a href="index.html"><button class="btnComecarQuestionario">Refazer</button></a>
