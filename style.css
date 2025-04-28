@@ -27,20 +27,19 @@ body{
 }
 
 .tituloBoasVindas{
-
-
-
-
     font-family: "Press Start 2P", system-ui;
     font-weight: 400;
     font-style: normal;
-
-
 }
 
+.tituloResultado{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
 
 .btnComecarQuestionario{
-    display: flex;
+    text-decoration: none!important;
     justify-content: center;
     align-items: center;
 
@@ -68,4 +67,89 @@ body{
 
     background-color: rgb(109, 170, 109);
     border-radius: 5px;
+}
+
+.circulo{
+    position: absolute;
+    top: 38%;
+    left: 45%;
+    z-index: -2;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes subirDescer {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes pulandinho {
+    0% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(-20px) translateY(10px); }
+    75% { transform: translateX(20px) translateY(10px); }
+}
+
+#squirtle{
+    padding-left: 22px;
+}
+
+.fundoAgua{
+    position: absolute;
+    animation: subirDescer 2s infinite ease-in-out;
+    top: 41%;
+    left: 43.5%;
+    z-index: -1;
+    width: 260px;
+    height: auto;
+}
+
+.estrela {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    animation: moverEstrela 10s linear infinite, rotacionarEstrela 5s infinite linear;
+    z-index: -4;
+}
+
+.estrela:before, .estrela:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 4px;
+  background-color: white;
+  transform-origin: center center;
+}
+
+.estrela:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.estrela:after {
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+
+@keyframes moverEstrela {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(calc(100vw * -0.5), calc(100vh * -0.5));
+  }
+}
+
+@keyframes rotacionarEstrela {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

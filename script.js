@@ -1,5 +1,6 @@
-class Pokemon{
-    constructor(nome, tipo, descricao, imagem) {
+class Pokemon {
+    constructor(nome, tipo, descricao, imagem, imagemFundo) {
+
         this.nome = nome;
         this.tipo = tipo;
         this.descricao = descricao;
@@ -117,6 +118,7 @@ if (window.location.pathname.includes('resultado.html')) {
             document.body.style.backgroundColor = "rgb(255, 207, 207)";
         } else if (resultado.nome == "Bulbasaur") {
             document.body.style.backgroundColor = "rgb(230, 255, 224)";
+
         }
 
     } else {
