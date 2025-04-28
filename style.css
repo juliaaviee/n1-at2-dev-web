@@ -2,89 +2,83 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 body{
-    background-color: #f0f0f0;
-    font-family: "Roboto", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+  background-color: #f0f0f0;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 
 }
 
 .container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    margin-top: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15vh;
 }
 
 .container-img{
-    display: flex;
-    margin-left: 15%;
-
-    
+  display: flex;
+  margin-left: 15%;
 }
 
 .tituloBoasVindas{
-    font-family: "Press Start 2P", system-ui;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .tituloResultado{
-    font-family: "Press Start 2P", system-ui;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .btnComecarQuestionario{
-    text-decoration: none!important;
-    justify-content: center;
-    align-items: center;
-
-    margin-top: 5vh;
-    padding: 10px;
-
-    font-family: "Press Start 2P", system-ui;
-    font-weight: 400;
-    font-size: larger;
-    font-style: normal;
-
-    background-color: rgb(109, 170, 109);
-    border-radius: 7px;
+  text-decoration: none!important;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+  padding: 10px;
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-size: larger;
+  font-style: normal;
+  background-color: rgb(109, 170, 109);
+  border-radius: 7px;
 }
 
 .botaoEnviar{
-    font-family: "Press Start 2P", system-ui;
-    font-weight: 400;
-    font-size: larger;
-    font-style: normal;
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-size: larger;
+  font-style: normal;
 
-    margin-top: 60px;
-    margin-bottom: 15px;
-    padding: 10px;
+  margin-top: 60px;
+  margin-bottom: 15px;
+  padding: 10px;
 
-    background-color: rgb(109, 170, 109);
-    border-radius: 5px;
+  background-color: rgb(109, 170, 109);
+  border-radius: 5px;
 }
 
 .circulo{
-    position: absolute;
-    top: 38%;
-    left: 45%;
-    z-index: -2;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  top: 38%;
+  left: 45%;
+  z-index: -2;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes subirDescer {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 
 @keyframes pulandinho {
@@ -98,23 +92,23 @@ body{
 }
 
 .fundoAgua{
-    position: absolute;
-    animation: subirDescer 2s infinite ease-in-out;
-    top: 41%;
-    left: 43.5%;
-    z-index: -1;
-    width: 260px;
-    height: auto;
+  position: absolute;
+  animation: subirDescer 2s infinite ease-in-out;
+  top: 41%;
+  left: 43.5%;
+  z-index: -1;
+  width: 260px;
+  height: auto;
 }
 
 .estrela {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: transparent;
-    border-radius: 50%;
-    animation: moverEstrela 10s linear infinite, rotacionarEstrela 5s infinite linear;
-    z-index: -4;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  animation: moverEstrela 10s linear infinite, rotacionarEstrela 5s infinite linear;
+  z-index: -4;
 }
 
 .estrela:before, .estrela:after {
@@ -152,4 +146,8 @@ body{
   100% {
     transform: rotate(360deg);
   }
+}
+
+#titulo_comeco{
+  font-family: "Press Start 2P", system-ui;
 }
