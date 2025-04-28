@@ -19,9 +19,9 @@ const pontuacoes = {
     floresta: [3, 1, 2],
     montanhas: [1, 3, 2],
     praia: [2, 1, 3],
-    Verde: [3, 1, 2],
-    Vermelho: [1, 3, 2],
-    Azul: [2, 1, 3],
+    Verde: [6, 1, 2],
+    Vermelho: [1, 6, 2],
+    Azul: [2, 1, 6],
     Salada: [3, 1, 2],
     Churrasco: [1, 3, 2],
     "Frutos do mar": [2, 1, 3],
@@ -91,12 +91,13 @@ if (window.location.pathname.includes('resultado.html')) {
     if (resultado && pontosTodos) {
         const totalPerguntas = 10;
         const maxPontosPorPergunta = 3;
-        const pontuacaoMaxima = totalPerguntas * maxPontosPorPergunta;
+        const pontuacaoMaxima = totalPerguntas * maxPontosPorPergunta + 3;
 
         document.body.innerHTML = `
             <div class="container">
+                <div id="estrelas"></div>
                 <h1>Você seria o ${resultado.nome}!</h1>
-                <img src="${resultado.imagem}" alt="${resultado.nome}" style="width:200px;">
+                <img src="${resultado.imagem}" alt="${resultado.nome}" style="width:200px; animation: pulandinho 2s cubic-bezier(0, 0, 0, 0) infinite">
                 <p>${resultado.descricao}</p>
                 <h2>Pontuação final: ${resultado.pontos}/${pontuacaoMaxima} pontos</h2>
 
@@ -117,8 +118,7 @@ if (window.location.pathname.includes('resultado.html')) {
         } else if (resultado.nome == "Charmander") {
             document.body.style.backgroundColor = "rgb(255, 207, 207)";
         } else if (resultado.nome == "Bulbasaur") {
-            document.body.style.backgroundColor = "rgb(230, 255, 224)";
-
+            document.body.style.backgroundColor = "rgb(179, 207, 172)";
         }
 
     } else {
@@ -130,9 +130,6 @@ if (window.location.pathname.includes('resultado.html')) {
         `;
     }
 }
-
-
-
 
 if (window.location.pathname.includes('resultado.html')) {
     const resultado = JSON.parse(localStorage.getItem('resultadoPokemon'));
