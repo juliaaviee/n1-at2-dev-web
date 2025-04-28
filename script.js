@@ -1,4 +1,4 @@
-class Pokemon {
+class Pokemon{
     constructor(nome, tipo, descricao, imagem) {
         this.nome = nome;
         this.tipo = tipo;
@@ -39,12 +39,14 @@ const pontuacoes = {
     Observador: [3, 1, 2],
     Iniciativa: [1, 3, 2],
     Cooperativo: [2, 1, 3],
-    Energetico: [1, 3, 2],
-    Cauteloso: [2, 1, 3],
-    Tranquilo: [3, 1, 2],
-    Desejo: [2, 1, 3],
-    Confiante: [3, 1, 2]
+    Energetico: [3, 1, 2],
+    Cauteloso: [1, 3, 2],
+    Tranquilo: [2, 1, 3],
+    Determinado: [1, 3, 2],
+    Desejo: [3, 1, 2],
+    Confiante: [2, 1, 3]
 };
+
 
 if (window.location.pathname.includes('questionario.html')) {
     document.querySelector('.botaoEnviar').addEventListener('click', function (e) {
@@ -69,31 +71,52 @@ if (window.location.pathname.includes('questionario.html')) {
         let vencedor = pokemons.reduce((prev, curr) => prev.pontos > curr.pontos ? prev : curr);
 
         localStorage.setItem('resultadoPokemon', JSON.stringify(vencedor));
+
+        const pontosTodos = {
+            Bulbasaur: pokemons.find(p => p.nome === 'Bulbasaur').pontos,
+            Charmander: pokemons.find(p => p.nome === 'Charmander').pontos,
+            Squirtle: pokemons.find(p => p.nome === 'Squirtle').pontos
+        };
+
+        localStorage.setItem('pontosTodos', JSON.stringify(pontosTodos));
     });
 }
 
 
-
 if (window.location.pathname.includes('resultado.html')) {
     const resultado = JSON.parse(localStorage.getItem('resultadoPokemon'));
-    console.log(resultado)
-    if (resultado) {
+    const pontosTodos = JSON.parse(localStorage.getItem('pontosTodos'));
+
+    if (resultado && pontosTodos) {
+        const totalPerguntas = 10;
+        const maxPontosPorPergunta = 3;
+        const pontuacaoMaxima = totalPerguntas * maxPontosPorPergunta;
 
         document.body.innerHTML = `
             <div class="container">
                 <h1>Você seria o ${resultado.nome}!</h1>
                 <img src="${resultado.imagem}" alt="${resultado.nome}" style="width:200px;">
                 <p>${resultado.descricao}</p>
+                <h2>Pontuação final: ${resultado.pontos}/${pontuacaoMaxima} pontos</h2>
+
+                <h3>Veja como ficou a pontuação de todos:</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><strong>Bulbasaur:</strong> ${pontosTodos.Bulbasaur} pontos</li>
+                    <li><strong>Charmander:</strong> ${pontosTodos.Charmander} pontos</li>
+                    <li><strong>Squirtle:</strong> ${pontosTodos.Squirtle} pontos</li>
+                </ul>
+
                 <a href="index.html"><button class="btnComecarQuestionario">Refazer</button></a>
             </div>
         `;
 
-        if(resultado.nome == "Squirtle"){
-            document.body.style.backgroundColor = " rgb(178, 221, 240)"
-        }else if (resultado.nome == "Charmander"){
-            document.body.style.backgroundColor = " rgb(255, 207, 207)"
-        }else if(resultado.nome == "Bulbasaur"){
-            document.body.style.backgroundColor = " rgb(230, 255, 224)"
+        
+        if (resultado.nome == "Squirtle") {
+            document.body.style.backgroundColor = "rgb(178, 221, 240)";
+        } else if (resultado.nome == "Charmander") {
+            document.body.style.backgroundColor = "rgb(255, 207, 207)";
+        } else if (resultado.nome == "Bulbasaur") {
+            document.body.style.backgroundColor = "rgb(230, 255, 224)";
         }
 
     } else {
