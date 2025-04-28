@@ -55,7 +55,6 @@ body{
     border-radius: 7px;
 }
 
-
 .botaoEnviar{
     font-family: "Press Start 2P", system-ui;
     font-weight: 400;
@@ -68,4 +67,91 @@ body{
 
     background-color: rgb(109, 170, 109);
     border-radius: 5px;
+}
+
+.circulo{
+    position: absolute;
+    top: 38%;
+    left: 45%;
+    z-index: -2;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes subirDescer {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes pulandinho {
+    0% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(-20px) translateY(10px); }
+    75% { transform: translateX(20px) translateY(10px); }
+}
+
+.fundoAgua{
+    position: absolute;
+    animation: subirDescer 2s infinite ease-in-out;
+    top: 41%;
+    left: 43.5%;
+    z-index: -1;
+    width: 260px;
+    height: auto;
+}
+
+.estrelinha {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    animation: moverEstrelinha 10s linear infinite, girarEstrelinha 5s infinite linear;
+    z-index: 1;
+}
+
+.estrelinha:before, .estrelinha:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 4px;
+    background-color: white;
+    transform-origin: center center;
+}
+
+.estrelinha:before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.estrelinha:after {
+    transform: translate(-50%, -50%) rotate(135deg);
+}
+
+@keyframes moverEstrelinha {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    100% {
+      transform: translate(calc(100vw * -0.5), calc(100vh * -0.5));
+    }
+}
+
+@keyframes girarEstrelinha {
+    0% {
+      transform: rotate(0deg);
+    }
+    
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+#squirtle{
+    padding-left: 22px;
 }

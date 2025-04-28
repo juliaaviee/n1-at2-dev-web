@@ -1,5 +1,5 @@
 class Pokemon {
-    constructor(nome, tipo, descricao, imagem) {
+    constructor(nome, tipo, descricao, imagem, imagemFundo) {
         this.nome = nome;
         this.tipo = tipo;
         this.descricao = descricao;
@@ -76,20 +76,30 @@ if (window.location.pathname.includes('resultado.html')) {
     const resultado = JSON.parse(localStorage.getItem('resultadoPokemon'));
     console.log(resultado)
     if (resultado) {
+        let pokemonId = resultado.nome.toLowerCase().replace(/\s+/g, '-');
 
         document.body.innerHTML = `
             <div class="container">
+                <div class="estrelinhas"></div>
                 <h1 class="tituloResultado">Você seria o ${resultado.nome}!</h1>
-                <img src="${resultado.imagem}" alt="${resultado.nome}" style="width:200px;">
+                <div class="elementos">
+                    <img src="${resultado.imagem}" alt="${resultado.nome}" id="${pokemonId}" style="width:200px; animation: pulandinho 2s cubic-bezier(0, 0, 0, 0) infinite">
+                    <div class="circulo"></div>
+                </div>
                 <p>${resultado.descricao}</p>
                 <a href="index.html"><button class="btnComecarQuestionario">Refazer</button></a>
             </div>
         `;
 
         if(resultado.nome == "Squirtle"){
-            document.body.style.backgroundColor = " rgb(178, 221, 240)"
+            document.body.style.backgroundColor = " rgb(194, 229, 245)"
+            document.querySelector('.circulo').style.backgroundColor = 'rgb(217, 236, 245)';
+            document.body.appendChild(Object.assign(document.createElement("img"), { className: 'fundoAgua', src: "img/aguaPNG.png", alt: "Imagem de exemplo"}));
+
+            
         }else if (resultado.nome == "Charmander"){
             document.body.style.backgroundColor = " rgb(255, 207, 207)"
+
         }else if(resultado.nome == "Bulbasaur"){
             document.body.style.backgroundColor = " rgb(230, 255, 224)"
         }
