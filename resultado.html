@@ -5,7 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script>
+       document.addEventListener('DOMContentLoaded', () => {
+            const numEstrelas = 30;  // Quantidade de estrelas
+            const containerEstrelas = document.getElementById('estrelas');
 
+            // Função para criar estrela
+            function criarEstrela() {
+                const estrela = document.createElement('div');
+                estrela.classList.add('estrela');
+            
+                // Posição aleatória das estrelas na tela
+                estrela.style.top = `${Math.random() * 100}vh`;
+                estrela.style.left = `${Math.random() * 100}vw`;
+            
+                // Ajuste do tamanho da estrela de forma aleatória
+                const tamanho = Math.random() * 30 + 20; // Tamanho entre 20 e 50px
+                estrela.style.width = `${tamanho}px`;
+                estrela.style.height = `${tamanho}px`;
+            
+                // Adicionar a estrela ao container
+                containerEstrelas.appendChild(estrela);
+            }
+        
+            // Criar várias estrelas
+            for (let i = 0; i < numEstrelas; i++) {
+                criarEstrela();
+            }
+        });     
     </script>
 
     </script>

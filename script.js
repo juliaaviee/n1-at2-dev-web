@@ -80,14 +80,14 @@ if (window.location.pathname.includes('resultado.html')) {
 
         document.body.innerHTML = `
             <div class="container">
-                <div class="estrelinhas"></div>
-                <h1 class="tituloResultado">Você seria o ${resultado.nome}!</h1>
-                <div class="elementos">
-                    <img src="${resultado.imagem}" alt="${resultado.nome}" id="${pokemonId}" style="width:200px; animation: pulandinho 2s cubic-bezier(0, 0, 0, 0) infinite">
-                    <div class="circulo"></div>
-                </div>
-                <p>${resultado.descricao}</p>
-                <a href="index.html"><button class="btnComecarQuestionario">Refazer</button></a>
+            <div id="estrelas"></div>
+            <h1 class="tituloResultado">Você seria o ${resultado.nome}!</h1>
+            <div class="elementos">
+            <img src="${resultado.imagem}" alt="${resultado.nome}" id="${pokemonId}" style="width:200px; animation: pulandinho 2s cubic-bezier(0, 0, 0, 0) infinite">
+            <div class="circulo"></div>
+            </div>
+            <p>${resultado.descricao}</p>
+            <a href="index.html"><button class="btnComecarQuestionario">Refazer</button></a>
             </div>
         `;
 
