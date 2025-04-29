@@ -141,7 +141,7 @@ function mudaCorPaginaConformePokemon(ganhador) {
         document.querySelector('.circulo').style.backgroundColor = 'rgb(217, 236, 245)';
         document.body.appendChild(Object.assign(document.createElement("img"), { className: 'fundoAgua', src: "img/aguaPNG.png", alt: "Imagem de exemplo"}));
     }else if (ganhador == "Charmander"){
-        document.body.style.backgroundColor = " rgb(255, 207, 207)"
+        document.body.style.backgroundColor = " rgb(243, 170, 118)"
 
     }else if(ganhador == "Bulbasaur"){
         document.body.style.backgroundColor = " rgb(230, 255, 224)"
