@@ -116,7 +116,7 @@ function defineVencedor() {
 function salvaResultado(vencedor) {
     localStorage.setItem('resultadoPokemon', JSON.stringify(vencedor));
 
-    const pontosTodos = {
+    var pontosTodos = {
         Bulbasaur: pokemons.find(p => p.nome === 'Bulbasaur').pontos,
         Charmander: pokemons.find(p => p.nome === 'Charmander').pontos,
         Squirtle: pokemons.find(p => p.nome === 'Squirtle').pontos
@@ -145,9 +145,16 @@ function exibeResultado(resultado, pontosTodos) {
                 <li><strong>Squirtle:</strong> ${pontosTodos.Squirtle} pontos</li>
             </ul>
 
-            <a href="index.html"><button class="btnComecarQuestionario">Refazer</button></a>
+            <a href="index.html"><button class="btnComecarQuestionario" id="refaz">Refazer</button></a>
         </div>
     `;
+
+    document.getElementById("refaz").onclick = function(){
+        pontosTodos.Bulbasaur = 0 
+        pontosTodos.Charmander = 0
+        pontosTodos.Squirtle = 0
+    }
+
 }
 
 function exibeErroResultado() {
@@ -158,6 +165,8 @@ function exibeErroResultado() {
         </div>
     `;
 }
+
+
 
 function mudaCorPaginaConformePokemon(ganhador) {
     if (ganhador == "Squirtle") {
