@@ -53,6 +53,7 @@ function inicializaPontuacoes() {
         Energetico: [3, 1, 2],
         Cauteloso: [1, 3, 2],
         Tranquilo: [2, 1, 3],
+        Desistir:[1, 3 , 2],
         Desejo: [3, 1, 2],
         Confiante: [2, 1, 3]
     };
