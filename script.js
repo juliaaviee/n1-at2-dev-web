@@ -49,16 +49,24 @@ const pontuacoes = {
 };
 
 
+
+
+
 if (window.location.pathname.includes('questionario.html')) {
     document.querySelector('.botaoEnviar').addEventListener('click', function (e) {
-        let respostas = document.querySelectorAll('input[type=radio]:checked');
+
+        let respostas = document.querySelectorAll('input[type=radio]:checked'); 
         let totalPerguntas = document.querySelectorAll('.container-questoes div').length;
 
-        if (respostas.length < totalPerguntas) {
-            e.preventDefault(); 
-            alert('Por favor, responda todas as perguntas antes de enviar!');
-            return;
+        function confereSeTudoFoiRespondido(qtdRespostasRespondidas, totPerguntas) {
+            if (qtdRespostasRespondidas < totPerguntas) {
+                e.preventDefault(); 
+                alert('Por favor, responda todas as perguntas antes de enviar!');
+                return;
+            }
         }
+
+        confereSeTudoFoiRespondido(respostas.length, totalPerguntas)
 
         respostas.forEach(resposta => {
             let valores = pontuacoes[resposta.value];
@@ -69,7 +77,7 @@ if (window.location.pathname.includes('questionario.html')) {
             }
         });
 
-        let vencedor = pokemons.reduce((prev, curr) => prev.pontos > curr.pontos ? prev : curr);
+        var vencedor = pokemons.reduce((prev, curr) => prev.pontos > curr.pontos ? prev : curr);
 
         localStorage.setItem('resultadoPokemon', JSON.stringify(vencedor));
 
@@ -113,13 +121,7 @@ if (window.location.pathname.includes('resultado.html')) {
         `;
 
         
-        if (resultado.nome == "Squirtle") {
-            document.body.style.backgroundColor = "rgb(178, 221, 240)";
-        } else if (resultado.nome == "Charmander") {
-            document.body.style.backgroundColor = "rgb(255, 207, 207)";
-        } else if (resultado.nome == "Bulbasaur") {
-            document.body.style.backgroundColor = "rgb(179, 207, 172)";
-        }
+        mudaCorPaginaConformePokemon(resultado.nome)
 
     } else {
         document.body.innerHTML = `
@@ -131,49 +133,17 @@ if (window.location.pathname.includes('resultado.html')) {
     }
 }
 
-if (window.location.pathname.includes('resultado.html')) {
-    const resultado = JSON.parse(localStorage.getItem('resultadoPokemon'));
-    console.log(resultado)
-    if (resultado) {
-        let pokemonId = resultado.nome.toLowerCase().replace(/\s+/g, '-');
 
-        document.body.innerHTML = `
-            <div class="container">
-                <h1>Você seria o ${resultado.nome}!</h1>
-                <img src="${resultado.imagem}" alt="${resultado.nome}" style="width:200px;">
-                <p>${resultado.descricao}</p>
-                <h2>Pontuação final: ${resultado.pontos}/${pontuacaoMaxima} pontos</h2>
 
-                <h3>Veja como ficou a pontuação de todos:</h3>
-                <ul style="list-style: none; padding: 0;">
-                    <li><strong>Bulbasaur:</strong> ${pontosTodos.Bulbasaur} pontos</li>
-                    <li><strong>Charmander:</strong> ${pontosTodos.Charmander} pontos</li>
-                    <li><strong>Squirtle:</strong> ${pontosTodos.Squirtle} pontos</li>
-                </ul>
+function mudaCorPaginaConformePokemon(ganhador) {
+    if(ganhador == "Squirtle"){
+        document.body.style.backgroundColor = " rgb(194, 229, 245)"
+        document.querySelector('.circulo').style.backgroundColor = 'rgb(217, 236, 245)';
+        document.body.appendChild(Object.assign(document.createElement("img"), { className: 'fundoAgua', src: "img/aguaPNG.png", alt: "Imagem de exemplo"}));
+    }else if (ganhador == "Charmander"){
+        document.body.style.backgroundColor = " rgb(255, 207, 207)"
 
-                <a href="index.html"><button class="btnComecarQuestionario">Refazer</button></a>
-            </div>
-        `;
-
-        if(resultado.nome == "Squirtle"){
-            document.body.style.backgroundColor = " rgb(194, 229, 245)"
-            document.querySelector('.circulo').style.backgroundColor = 'rgb(217, 236, 245)';
-            document.body.appendChild(Object.assign(document.createElement("img"), { className: 'fundoAgua', src: "img/aguaPNG.png", alt: "Imagem de exemplo"}));
-
-            
-        }else if (resultado.nome == "Charmander"){
-            document.body.style.backgroundColor = " rgb(255, 207, 207)"
-
-        }else if(resultado.nome == "Bulbasaur"){
-            document.body.style.backgroundColor = " rgb(230, 255, 224)"
-        }
-
-    } else {
-        document.body.innerHTML = `
-            <div class="container">
-                <h1>Ops, nenhum resultado encontrado!</h1>
-                <a href="index.html"><button class="btnComecarQuestionario">Voltar</button></a>
-            </div>
-        `;
+    }else if(ganhador == "Bulbasaur"){
+        document.body.style.backgroundColor = " rgb(230, 255, 224)"
     }
 }
