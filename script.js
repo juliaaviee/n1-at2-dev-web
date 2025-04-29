@@ -14,7 +14,7 @@ const pontuacoes = inicializaPontuacoes();
 inicializaPaginaQuestionario();
 inicializaPaginaResultado();
 
-//FUNÇÕES PRINCIPAIS
+
 
 function inicializaPokemons() {
     return [
@@ -87,7 +87,7 @@ function inicializaPaginaResultado() {
     }
 }
 
-//FUNÇÕES AUXILIARES
+
 
 function verificaRespostas(respondidas, total, evento) {
     if (respondidas < total) {
